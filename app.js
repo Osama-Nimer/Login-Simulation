@@ -15,7 +15,6 @@ app.post("/register",async (req,res) =>{
             res.status(400).send("invalid email or password");
         const hashedPass = await bcrypt.hash(password,10).then();
         users.push({email: email , password: hashedPass});
-        console.log(users);
         res.status(201).send("Register Created Successfully");
     } catch (error) {
         res.status(500).send(error);
